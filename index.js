@@ -2,7 +2,8 @@ var http = require('http'),
     exec = require('child_process').exec,
     nodemailer = require("nodemailer"),
     events = require('events'),
-    util = require('util');
+    util = require('util'),
+    mailer_credentials = require(process.env.HOME + '/.auth.json').notifier;
 
 function Monitor(){
   var self = this;
@@ -39,10 +40,7 @@ function Monitor(){
 
   this.transport = nodemailer.createTransport("SMTP", {
     service: "Gmail",
-    auth: {
-      user: "edp.notifier@gmail.com",
-      pass: "Alamakota909"
-    }
+    auth: mailer_credentials
   });
 
   this.errors = [];
