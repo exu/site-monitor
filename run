@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+/* -*- mode: js3 -*- */
+
+var M = require('lib/monitor.js').Monitor
+
+M.checkDNSes()
+M.checkHosts();
+M.checkSites();
+
